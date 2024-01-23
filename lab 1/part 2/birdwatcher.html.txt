@@ -2,6 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+
+<!--
+	Name: Hayden Hyde Heaslip
+	File: birdwatcher.html
+	Date: 23 january 2024
+	a birdwatching page.
+	-->
 <style>
 /* || General setup */
 
