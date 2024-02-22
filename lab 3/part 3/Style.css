@@ -47,29 +47,67 @@ header, footer {
 @font-face { font-family: TypeWriter; src: url('MonospaceTypewriter.ttf'); } 
 
 body {
-font-family: TypeWriter;
-font-size: 10px;
-line-height: 15px;
-letter-spacing: 0.80px;
+  font-family: TypeWriter;
+  font-size: 10px;
+  line-height: 15px;
+  letter-spacing: 0.80px;
 }
 h1, h2, h3 {
-font-family: Caligraphy;
-letter-spacing: 1.75px;
+  font-family: Caligraphy;
+  letter-spacing: 1.75px;
 }
 h1 {
-text-align: center;
-font-size: 25px;
+  text-align: center;
+  font-size: 25px;
 }
-section {
-text-indent: 20px;
+h2 {
+  font-size: 20px;
+}
+p {
+  text-indent: 20px;
 }
 a {
-color: #a66; 
+  outline: none;
+  color: #a66; 
 }
+
 a:visited {
-color: maroon;
+  color: maroon;
 }
+
 a:hover {
-text-decoration-line: none;
-color: #bd9797;
+  text-decoration-line: none;
+  color: #bd9797;
 }
+a:focus {
+  color: brown;
+}
+a[href^="http"] {
+  background: url("external-link-52.png") no-repeat;
+  background-position: center right;
+  background-size: 12px;
+  padding-right: 14px;
+}
+ul li {
+  line-height: 15px;
+  list-style-type: square;
+}
+nav ul li {
+  font-size: 18px;
+  width: auto;
+  padding: 20px 20px 20px 20px;
+  height: auto;
+  text-align: center;
+  background-color: #FFFAFA;
+  border: 1px solid #a66;
+  margin: 1rem;
+  position: relative;
+  right: 25%;
+  list-style-type: none;
+  display: run-in;
+}
+nav ul li a:active {
+  font-weight: bold;
+  text-decoration-line: underline;
+}
+
