@@ -6,6 +6,8 @@
 -->
 html {
   font-family: sans-serif;
+  font-size: 1.125rem;
+<!-- divided the font size of 18 by 16 to get 1.125-->
 }
 .center {
   line-height: 200px;
@@ -20,17 +22,24 @@ html {
   
   
 }
+.gradient {
+  
+  background-image: linear-gradient(to top left, rgb(0,0,0,0), rgb(0,0,0,0.2) 30%);
+}
 .center p {
   line-height: 1.5;
   display: inline-block;
   vertical-align: middle;
 }
 div {
+  box-shadow: 5px 10px 10px, 3px 3px 2px rgb(255,255,255,0.5) inset, -3px -3px 2px rgb(0,0,0,0.5) inset;
   align-self: center;
   text-align: center;
   width: auto;
   padding: 0 100px 0 100px;
   height: 200px;
-  background-color: #eeeeee;
+  background-color: fuchsia;
+  border: 1px solid purple;
+  color: black;
   border-radius: 10px;
 }
