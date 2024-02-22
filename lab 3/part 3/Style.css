@@ -43,6 +43,7 @@ header, footer {
 }
 
 /* WRITE YOUR CODE BELOW HERE */
+/* font edits */
 @font-face { font-family: Caligraphy; src: url('Prata-Regular.ttf'); } 
 @font-face { font-family: TypeWriter; src: url('MonospaceTypewriter.ttf'); } 
 
@@ -66,10 +67,15 @@ h2 {
 p {
   text-indent: 20px;
 }
+
+/* links */
+
 a {
   outline: none;
   color: #a66; 
 }
+
+
 
 a:visited {
   color: maroon;
@@ -88,6 +94,8 @@ a[href^="http"] {
   background-size: 12px;
   padding-right: 14px;
 }
+
+/* lists */
 ul li {
   line-height: 15px;
   list-style-type: square;
