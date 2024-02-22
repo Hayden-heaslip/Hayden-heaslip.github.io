@@ -43,5 +43,33 @@ header, footer {
 }
 
 /* WRITE YOUR CODE BELOW HERE */
+@font-face { font-family: Caligraphy; src: url('Prata-Regular.ttf'); } 
+@font-face { font-family: TypeWriter; src: url('MonospaceTypewriter.ttf'); } 
 
-.fonts
+body {
+font-family: TypeWriter;
+font-size: 10px;
+line-height: 15px;
+letter-spacing: 0.80px;
+}
+h1, h2, h3 {
+font-family: Caligraphy;
+letter-spacing: 1.75px;
+}
+h1 {
+text-align: center;
+font-size: 25px;
+}
+section {
+text-indent: 20px;
+}
+a {
+color: #a66; 
+}
+a:visited {
+color: maroon;
+}
+a:hover {
+text-decoration-line: none;
+color: #bd9797;
+}
