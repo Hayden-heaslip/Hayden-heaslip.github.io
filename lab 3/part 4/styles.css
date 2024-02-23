@@ -20,7 +20,10 @@ body {
   .grid {
     margin: 0 auto;
     padding: 0 20px;
-    max-width: 980px;
+    max-width: 1000px;
+    display: flex;
+background-color: green;
+
   }
   
   nav {
@@ -32,8 +35,16 @@ body {
     margin: 0;
     padding: 0;
     list-style: none;
+display: flex;
+  flex-direction: row;
+
   }
-  
+nav ul li {
+    
+    text-align: center;
+    margin: auto;
+    
+  }
   nav a {
     color: #fff;
     text-decoration: none;
@@ -48,4 +59,22 @@ body {
 
   .feature {
       width: 200px;
+      float: left;
+      padding: 10px;
   }
+aside {
+margin:0;
+float: right;
+padding: 10px;
+;
+
+}
+aside h2 {
+  float: right;
+}
+aside img {
+  display: block;
+  float: left;
+
+  width: 50%;
+}
