@@ -20,9 +20,9 @@ body {
   .grid {
     margin: 0 auto;
     padding: 0 20px;
-    max-width: 1000px;
+    max-width: 980px;
     display: flex;
-background-color: green;
+
 
   }
   
@@ -52,9 +52,14 @@ nav ul li {
   }
   
   .photos {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    display: grid;
+    gap: 1px;
+    grid-template-columns: 1fr 1fr;
+    list-style-type: none;
+float: left;
+
+
+
   }
 
   .feature {
@@ -65,16 +70,8 @@ nav ul li {
 aside {
 margin:0;
 float: right;
-padding: 10px;
-;
-
-}
-aside h2 {
-  float: right;
 }
 aside img {
-  display: block;
-  float: left;
-
-  width: 50%;
+max-width: 130px;
+flex: 100%;
 }
