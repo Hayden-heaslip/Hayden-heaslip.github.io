@@ -12,11 +12,17 @@ const images = ["pic1.jpg", "pic2.jpg", "pic3.jpg", "pic4.jpg", "pic5.jpg"];
 
 const alter = ["eye close up", "weird wave picture",  "flowers", "Egyptian gods", "butterfly"];
 /* Looping through images */
+
 for (let i = 0; i < images.length; i++)
 {
-const newImage = document.createElement('img');
-newImage.setAttribute('src', images[i]);
-newImage.setAttribute('alt', alter[i]);
-thumbBar.appendChild(newImage);
+  const newImage = document.createElement('img');
+  newImage.setAttribute('src', `images/${images[i]}`);
+  newImage.setAttribute('alt', alter[i]);
+  thumbBar.appendChild(newImage);
+  newImage.addEventListener('click', event => {
+    displayedImage.setAttribute('src', `images/${images[i]}`); 
+    displayedImage.setAttribute('alt', alter[i]);
+  });
 }
+
 /* Wiring up the Darken/Lighten button */
