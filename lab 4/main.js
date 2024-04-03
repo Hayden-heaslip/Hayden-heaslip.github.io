@@ -24,24 +24,22 @@ const insertz = ["spontaneously combusted", "melted into a puddle on the sidewal
 
 
 function result() {
-  const newStory = StoryText
+  let newStory = StoryText
   const xitem = randomValueFromArray(insertx)
   const yitem = randomValueFromArray(inserty)
   const zitem = randomValueFromArray(insertz)
-  newStory.replace(":insertx:", xitem)
-  newStory.replace(":inserty:", yitem)
-  newStory.replace(":insertz:", zitem)
+  newStory = newStory.replaceAll(":insertx:", xitem).replace(":inserty:", yitem).replace(":insertz:", zitem)
   if(customName.value !== '') {
     const name = customName.value;
-    newStory.replace("bob", name)
+    newStory = newStory.replace("Bob", name)
 
   }
 
   if(document.getElementById("uk").checked) {
     const weight = Math.round(21.4286) + " stones";
-    newStory.replace("300 pounds", weight)
+    newStory = newStory.replace("300 pounds", weight)
     const temperature =  Math.round(34.444) + " centigrade";
-    newStory.replace("94 fahrenheit", temperature)
+    newStory = newStory.replace("94 fahrenheit", temperature)
 
   }
 
