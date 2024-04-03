@@ -70,6 +70,7 @@ collisionDetect() {
 
 }
 
+const testBall = new Ball(50, 100, 4, 4, "blue", 10);
 
 const balls = [];
 
