@@ -22,19 +22,15 @@ const insertz = ["spontaneously combusted", "melted into a puddle on the sidewal
 
 //3. EVENT LISTENER AND PARTIAL FUNCTION DEFINITION
 
-randomize.addEventListener('click', result);
 
 function result() {
   const newStory = StoryText
-  const para = document.createElement("p");
   const xitem = randomValueFromArray(insertx)
   const yitem = randomValueFromArray(inserty)
   const zitem = randomValueFromArray(insertz)
   newStory.replace(":insertx:", xitem)
   newStory.replace(":inserty:", yitem)
   newStory.replace(":insertz:", zitem)
-  para.textContent = "You clicked the button!";
-  document.body.appendChild(para);
   if(customName.value !== '') {
     const name = customName.value;
     newStory.replace("bob", name)
@@ -42,8 +38,10 @@ function result() {
   }
 
   if(document.getElementById("uk").checked) {
-    const weight = Math.round(21.4286);
-    const temperature =  Math.round(94);
+    const weight = Math.round(21.4286) + " stones";
+    newStory.replace("300 pounds", weight)
+    const temperature =  Math.round(34.444) + " centigrade";
+    newStory.replace("94 fahrenheit", temperature)
 
   }
 
@@ -51,3 +49,5 @@ function result() {
   story.textContent = newStory;
   story.style.visibility = 'visible';
 }
+
+randomize.addEventListener('click', result);
