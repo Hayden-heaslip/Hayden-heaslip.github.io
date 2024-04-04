@@ -1,5 +1,6 @@
 // set up canvas
-
+const counter = document.querySelector('p');
+let countdown = 0;
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 
@@ -18,20 +19,17 @@ function randomRGB() {
   return `rgb(${random(0, 255)},${random(0, 255)},${random(0, 255)})`;
 }
 class Shape {
-
-  constructor(x, y, velX, velY) {
-    this.x = x;
-    this.y = y;
-    this.velX = velX;
-    this.velY = velY;
-  }
-
+constructor(x, y, velX, velY)
+{
+this.x = x;
+this.y = y;
+this.velX = velX;
+this.velY = velY;
+}
 }
 class Ball extends Shape {
-
   constructor(x, y, velX, velY, color, size) {
     super(x, y, velX, velY);
-
     this.color = color;
     this.size = size;
     this.exists = true;
@@ -66,22 +64,86 @@ class Ball extends Shape {
   }
 
   collisionDetect() {
+     for (const ball of balls) {
+        if (!(this === ball) && ball.exists) {
+           const dx = this.x - ball.x;
+           const dy = this.y - ball.y;
+           const distance = Math.sqrt(dx * dx + dy * dy);
+
+           if (distance < this.size + ball.size) {
+             ball.color = this.color = randomRGB();
+           }
+        }
+     }
+  }
+}
+class EvilCircle extends Shape
+{
+constructor(x, y)
+{
+super(x, y, 20, 20);
+this.color = "white";
+this.size = 10;
+window.addEventListener("keydown", (e) => {
+  switch (e.key) {
+    case "a":
+      this.x -= this.velX;
+      break;
+    case "d":
+      this.x += this.velX;
+      break;
+    case "w":
+      this.y -= this.velY;
+      break;
+    case "s":
+      this.y += this.velY;
+      break;
+  }
+});
+}
+  draw() {
+    ctx.beginPath();
+    ctx.strokeStyle = this.color;
+    ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
+    ctx.lineWidth = 3;
+    ctx.stroke();
+  }
+checkBounds() {
+    if ((this.x + this.size) >= width) {
+      this.x -= this.size;
+    }
+
+    if ((this.x - this.size) <= 0) {
+      this.x += this.size;
+    }
+
+    if ((this.y + this.size) >= height) {
+      this.y -= this.size;
+    }
+
+    if ((this.y - this.size) <= 0) {
+      this.y += this.size;
+    }
+  }
+  collisionDetect() {
     for (const ball of balls) {
-      if (!(this === ball)) {
+      if (ball.exists) {
         const dx = this.x - ball.x;
         const dy = this.y - ball.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
 
         if (distance < this.size + ball.size) {
-          ball.color = this.color = randomRGB();
+          ball.exists = false;
+          countdown--;
+          counter.textContent = `Ball count: ${countdown}`;
+
         }
       }
     }
   }
 }
-
+const badballs = new EvilCircle(50, 50);
 const balls = [];
-
 while (balls.length < 25) {
   const size = random(10, 20);
   const ball = new Ball(
@@ -92,10 +154,12 @@ while (balls.length < 25) {
     random(-7, 7),
     random(-7, 7),
     randomRGB(),
-    size
+    size,
   );
 
   balls.push(ball);
+countdown++;
+counter.textContent = `Ball count: ${countdown}`;
 }
 
 function loop() {
@@ -103,10 +167,15 @@ function loop() {
   ctx.fillRect(0, 0, width, height);
 
   for (const ball of balls) {
-    ball.draw();
-    ball.update();
-    ball.collisionDetect();
+    if (ball.exists) {
+      ball.draw();
+      ball.update();
+      ball.collisionDetect();
+    }
   }
+  badballs.draw();
+  badballs.checkBounds();
+  badballs.collisionDetect();
 
   requestAnimationFrame(loop);
 }
